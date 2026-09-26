@@ -131,59 +131,6 @@ The analytical model resides in schema `data_lab.shop` and consists of 3 dimensi
 
 ---
 
-## Star Schema
-
-```mermaid
-erDiagram
-    dim_customer ||--o{ fact_sales : "places orders"
-    dim_customer ||--o{ fact_payments : "makes payments"
-    dim_date ||--o{ fact_sales : "ordered on"
-    dim_date ||--o{ fact_payments : "paid on"
-    dim_product ||--o{ fact_sales : "includes product"
-
-    dim_customer {
-        int customer_id PK
-        string customer_name
-        string city
-    }
-
-    dim_product {
-        int product_id PK
-        string product_name
-        string category
-    }
-
-    dim_date {
-        date date PK
-        string month
-        string day_name
-        boolean is_weekend
-    }
-
-    fact_sales {
-        int order_id
-        date date FK
-        int customer_id FK
-        int product_id FK
-        int quantity
-        int unit_price
-        int amount
-    }
-
-    fact_payments {
-        int payment_id PK
-        int order_id
-        date date FK
-        int customer_id FK
-        string method
-        int amount
-    }
-```
-
-> **Crucial Architecture Note:** `fact_sales` and `fact_payments` are **not** linked directly with a foreign key relationship. Although `order_id` is present in both facts as a common business identifier, direct joins between these two tables lead to severe row multiplication.
-
----
-
 ## Data Modeling Decisions
 
 1. **Separation of Distinct Business Processes:**
