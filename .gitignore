@@ -1,0 +1,65 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environments
+venv/
+.venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# Environment Variables and Credentials
+.env
+.env.*
+*.env
+*.pem
+*.key
+*secret*
+*credential*
+.databrickscfg
+.databricks/
+
+# Temporary and Log files
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Note: Notebooks (*.ipynb) are tracked intentionally.
+# Raw datasets are managed via Databricks Unity Catalog Volumes and not committed here.
